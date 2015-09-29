@@ -85,7 +85,7 @@ public class SuperTable{
 
       // Get the scan result
 	  HTable table = new HTable(config, "mp4");
-	  ResultScanner scanner = table.getScanner(scanner);
+	  ResultScanner scanner = table.getScanner(scan);
 
       // Read values from scan result
       // Print scan result
