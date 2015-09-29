@@ -28,7 +28,7 @@ public class SuperTable{
 	  HBaseAdmin admin = new HBaseAdmin(config);
 	  
       // Instantiate table descriptor class
-	  HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("mp4"));
+	  HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("powers"));
 
       // Add column families to table descriptor
 	  tableDescriptor.addFamily(new HColumnDescriptor("personal"));
@@ -75,7 +75,8 @@ public class SuperTable{
 	  hTable.put(p3);
 	
       // Close table
-	  hTable.close();
+	  //hTable.close();
+	  hTable.flushCommits();
 	  
       // Instantiate the Scan class
 	  Scan scan = new Scan();
@@ -84,8 +85,9 @@ public class SuperTable{
 	  scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
 
       // Get the scan result
-	  HTable table = new HTable(config, "powers");
-	  ResultScanner scanner = table.getScanner(scan);
+	  //HTable table = new HTable(config, "powers");
+	  //ResultScanner scanner = table.getScanner(scan);
+	  ResultScanner scanner = hTable.getScanner(scan);
 
       // Read values from scan result
       // Print scan result
@@ -96,6 +98,7 @@ public class SuperTable{
 	  scanner.close();
    
       // Htable closer
+	  hTable.close();
    }
 }
 
