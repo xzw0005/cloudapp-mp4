@@ -75,8 +75,7 @@ public class SuperTable{
 	  hTable.put(p3);
 	
       // Close table
-	  //hTable.close();
-	  hTable.flushCommits();
+	  hTable.flushCommits();	// .flushCommits method flushes your memstore obj to HFile on HDFS
 	  
       // Instantiate the Scan class
 	  Scan scan = new Scan();
@@ -85,8 +84,6 @@ public class SuperTable{
 	  scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
 
       // Get the scan result
-	  //HTable table = new HTable(config, "powers");
-	  //ResultScanner scanner = table.getScanner(scan);
 	  ResultScanner scanner = hTable.getScanner(scan);
 
       // Read values from scan result
