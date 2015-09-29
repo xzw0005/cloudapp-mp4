@@ -78,7 +78,7 @@ public class SuperTable{
 	  hTable.close();
 	  
       // Instantiate the Scan class
-	  Scan scan = new scan();
+	  Scan scan = new Scan();
      
       // Scan the required columns
 	  scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
