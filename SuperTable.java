@@ -28,7 +28,7 @@ public class SuperTable{
 	  HBaseAdmin admin = new HBaseAdmin(config);
 	  
       // Instantiate table descriptor class
-	  HTableDescriptor tableDescriptor = new tableDescriptor(TableName.valueOf("mp4"));
+	  HTableDescriptor tableDescriptor = new HTableDescriptor(TableName.valueOf("mp4"));
 
       // Add column families to table descriptor
 	  tableDescriptor.addFamily(new HColumnDescriptor("personal"));
