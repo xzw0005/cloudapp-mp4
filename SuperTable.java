@@ -39,7 +39,7 @@ public class SuperTable{
 	  System.out.println("################ Table created... ################");
 
       // Instantiating HTable class
-	  HTable hTable = new HTable(config, "mp4");
+	  HTable hTable = new HTable(config, "powers");
      
       // Repeat these steps as many times as necessary
 
@@ -84,7 +84,7 @@ public class SuperTable{
 	  scan.addColumn(Bytes.toBytes("personal"), Bytes.toBytes("hero"));
 
       // Get the scan result
-	  HTable table = new HTable(config, "mp4");
+	  HTable table = new HTable(config, "powers");
 	  ResultScanner scanner = table.getScanner(scan);
 
       // Read values from scan result
